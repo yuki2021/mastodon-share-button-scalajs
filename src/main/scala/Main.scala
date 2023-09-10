@@ -18,23 +18,8 @@ var hovering = false
 
 val templateDOM = """
 <style>
-  a.mstdn-share-button {
-    border-radius: 3px;
-    background-color: #6364FF;
-    color: white;
-    padding: 5px;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    height: 14px;
-    min-width: 14px;
-  }
-  img.mstdn-share-button-logo {
-    height: 14px;
-  }
-  span.mstdn-share-button-text {
-    
+  div.js-mstdn-share-button-container-extracted {
+    display: inline;
   }
   .mstdn-share-popup {
     border-radius: 5px;
@@ -47,6 +32,7 @@ val templateDOM = """
     bottom: 10em;
   }
   .mstdn-share-instance-save-button {
+    height: auto !important;
     border-radius: 5px;
     background-color: #6364FF;
     color: white;
@@ -65,18 +51,18 @@ val templateDOM = """
   }
 </style>
 <div class="js-mstdn-share-button-container">
-  <a href="#" tabindex="-1" class="js-mstdn-share mstdn-share-button">
-    <img class="mstdn-share-button-logo" src="https://raw.githubusercontent.com/windymelt/mastodon-share-button-scalajs/main/logo-white.svg" alt="Mastodon">
-    <span class="js-mstdn-share-button-text mstdn-share-button-text">Share</span>
+  <a href="javascript:void(0);" class="mastodon-button js-mstdn-share">
+    <i class="fa fa-mastodon"></i>
+    <br>
+    <span class="small-text">Mastodon</span>
   </a>
   <div class="js-mstdn-share-popup mstdn-share-popup hidden">
     <form>
-    <label for="mstdn-instance-origin">Mastodon ID?</label>
+    <label for="mstdn-instance-origin">インスタンス入力</label>
     <!-- https://github.com/mastodon/mastodon/blob/69378eac99c013a0db7d2d5ff9a54dfcc287d9ce/app/models/account.rb#L64 -->
-    <input class="js-mstdn-instance-origin" name="mstdn-instance-origin" type="text" size="30" pattern="@[a-z0-9_]+([a-z0-9_\.-]+[a-z0-9_]+)?@.*" value="" placeholder="@username@pawoo.net" />
-    <div><small><i>To open this window, hover over the button.</i></small></div>
+    <input class="js-mstdn-instance-origin" name="mstdn-instance-origin" id="mstdn-instance-origin" type="text" size="30" pattern="@[a-z0-9_]+([a-z0-9_\.-]+[a-z0-9_]+)?@.*" value="" placeholder="@username@fedibird.com" />
     <div><small><i>ボタン上でマウスホバーするとこのウィンドウが開きます。</i></small></div>
-    <a href="#" class="js-mstdn-share-button-save mstdn-share-instance-save-button" type="button">Save and share</a>
+    <a href="javascript:void(0);" class="js-mstdn-share-button-save mstdn-share-instance-save-button" type="button">送信</a>
   </form>
   </div>
 </div>

@@ -51,7 +51,7 @@ val templateDOM = """
   }
 </style>
 <div class="js-mstdn-share-button-container">
-  <a href="javascript:void(0);" class="mastodon-button js-mstdn-share">
+  <a href="javascript:void(0);" class="mastodon-button js-mstdn-share mstdn-share-button">
     <i class="fa fa-mastodon"></i>
     <br>
     <span class="small-text">Mastodon</span>
